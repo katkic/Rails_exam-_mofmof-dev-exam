@@ -70,3 +70,25 @@ input[type="submit"] {
 .content-nav {
   margin-top: 20px;
 }
+
+.index-title {
+  border-bottom: 1px solid #999;
+  padding-bottom: 20px;
+}
+
+.index-table {
+  margin-bottom: 20px;
+}
+
+.index-table th,
+td {
+  padding: 10px;
+}
+
+.index-table td {
+  padding-right: 10px;
+}
+
+.remarks {
+  width: 780px;
+}
