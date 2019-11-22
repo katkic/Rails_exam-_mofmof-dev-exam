@@ -22,6 +22,8 @@ class ApartmentsController < ApplicationController
 
     if @apartment.save
       redirect_to @apartment, notice: "物件 #{@apartment.name} を登録しました"
+    else
+      render :new
     end
   end
 
