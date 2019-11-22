@@ -1,0 +1,54 @@
+<p class="notice"><%= notice %></p>
+
+<h1>閲覧</h1>
+
+<div class="container">
+  <div class="apartment">
+    <table class="apartment-table">
+      <tr>
+        <th>物件名</th>
+        <td><%= @apartment.name %></td>
+      </tr>
+      <tr>
+        <th>賃料</th>
+        <td><%= @apartment.rent.to_s(:delimited) %>円</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @apartment.address %></td>
+      </tr>
+      <tr>
+        <th>築年数</th>
+        <td><%= @apartment.year %>年</td>
+      </tr>
+      <tr>
+        <th>備考</th>
+        <td><%= @apartment.remarks %></td>
+      </tr>
+    </table><!-- /.apartment-table -->
+  </div><!-- /.apartment -->
+
+  <% @apartment.stations.each do |station| %>
+    <h3>最寄り駅<%= station.id %></h3>
+
+    <table class="station-table">
+      <tr>
+        <th>路線名</th>
+        <td><%= station.route %></td>
+      </tr>
+      <tr>
+        <th>駅名</th>
+        <td><%= station.name %></td>
+      </tr>
+      <tr>
+        <th>徒歩分数</th>
+        <td><%= station.walking_minutes %>分</td>
+      </tr>
+    </table>
+  <% end %>
+
+  <div class="content-nav">
+    <%= link_to '編集', edit_apartment_path(@apartment) %> |
+    <%= link_to '戻る', apartments_path %>
+  </div><!-- /.content-nav -->
+</div><!-- /.container -->

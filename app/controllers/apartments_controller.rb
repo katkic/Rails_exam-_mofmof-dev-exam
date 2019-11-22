@@ -1,4 +1,6 @@
 class ApartmentsController < ApplicationController
+  before_action :set_apartment, only: %i[show edit update destroy]
+
   def index
   end
 
@@ -40,4 +42,7 @@ class ApartmentsController < ApplicationController
     )
   end
 
+  def set_apartment
+    @apartment = Apartment.find(params[:id])
+  end
 end
