@@ -49,12 +49,12 @@ input[type="submit"] {
 }
 
 .apartment-table {
-  padding: 30px;
+  padding: 10px 0 15px 20px;
 }
 
 .apartment-table th {
   text-align: left;
-  padding: 20px 0;
+  padding: 15px;
 }
 
 .station-table {
