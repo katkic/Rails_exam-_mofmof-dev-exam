@@ -1,0 +1,48 @@
+<%= form_for apartment, local: true, class: 'input-form' do |f| %>
+  <% if apartment.errors.any? %>
+    <div id="error_explanation" class="error-messages">
+      <h2><%= apartment.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% apartment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.error_explanation -->
+  <% end %>
+
+  <div class="apartment">
+    <p><%= f.label :name, '物件名' %></p>
+    <p><%= f.text_field :name %></p>
+
+    <p><%= f.label :rent, '賃料' %></p>
+    <p><%= f.number_field :rent %>円</p>
+
+    <p><%= f.label :address, '住所' %></p>
+    <p><%= f.text_field :address %></p>
+
+    <p><%= f.label :year, '築年数' %></p>
+    <p><%= f.number_field :year %>年</p>
+
+    <p><%= f.label :remarks, '備考' %></p>
+    <p><%= f.text_area :remarks %></p>
+  </div><!-- /.apartment -->
+
+  <div class="station">
+    <%= f.fields_for :stations do |station| %>
+      <h3>最寄駅<%= station.index + 1 %></h3>
+      <%= station.hidden_field :number, value: station.index + 1 %>
+
+      <p><%= station.label :route, '路線名' %></p>
+      <p><%= station.text_field :route %></p>
+
+      <p><%= station.label :name, '駅名' %></p>
+      <p><%= station.text_field :name %></p>
+
+      <p><%= station.label :walking_minutes, '徒歩分数' %></p>
+      <p><%= station.number_field :walking_minutes %>分</p>
+    <% end %>
+  </div><!-- /.station -->
+
+  <p><%= f.submit value: '登録する' %></p>
+
+<% end %>
