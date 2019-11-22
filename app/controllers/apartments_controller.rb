@@ -14,6 +14,7 @@ class ApartmentsController < ApplicationController
   end
 
   def edit
+    @apartment.stations.build
   end
 
   def create
@@ -25,6 +26,12 @@ class ApartmentsController < ApplicationController
   end
 
   def update
+    if @apartment.update(apartment_params)
+      redirect_to @apartment, notice: "物件 #{@apartment.name} を更新しました"
+    else
+      render :edit
+    end
+
   end
 
   def destroy
