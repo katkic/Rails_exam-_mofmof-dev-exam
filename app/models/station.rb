@@ -1,3 +1,3 @@
 class Station < ApplicationRecord
-  belongs_to :apartment
+  belongs_to :apartment, optional: true
 end
