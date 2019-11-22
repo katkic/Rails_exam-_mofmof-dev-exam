@@ -37,6 +37,8 @@ class ApartmentsController < ApplicationController
   end
 
   def destroy
+    @apartment.destroy
+    redirect_to apartments_path, notice: "物件 #{@apartment.name} を削除しました"
   end
 
   private
